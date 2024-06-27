@@ -1,8 +1,10 @@
+.PHONY: build run test
+
 build:
-  go build -o bin/exchange
+	go build -o bin/exchange
 
 run: build
-  ./bin/exchange
+	./bin/exchange
 
 test:
-  go test -v ./...
+	go test -v ./...
