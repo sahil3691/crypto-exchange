@@ -1,22 +1,29 @@
 package main
 
 import (
+	"fmt"
 	"testing"
-    "fmt"
 )
 
-func TestLimit(t *testing.T){
-	l := NewLimit(10_100)
-	buyOrder := NewOrder(true, 5)
-	buyOrder := NewOrder(true , 8)
-	buyOrder := NewOrder(true, 10)
-    
+func TestLimit(t *testing.T) {
+	l := NewLimit(10100)
+	buyOrderA := NewOrder(true, 5)
+	buyOrderB := NewOrder(true, 8)
+	buyOrderC := NewOrder(true, 10)
+
 	l.AddOrder(buyOrderA)
 	l.AddOrder(buyOrderB)
 	l.AddOrder(buyOrderC)
 
-	fmt.Println(1)
+	fmt.Println(l)
 }
-func TestOrderbook(t *testing.T) {
 
+func TestOrderbook(t *testing.T) {
+	ob := NewOrderbook()
+
+	buyOrderA := NewOrder(true, 10)
+	buyOrderB := NewOrder(true, 2000)
+	ob.PlaceOrder(18000, buyOrderA)
+	ob.PlaceOrder(18000, buyOrderB)
+	fmt.Printf("%+v",ob.Bids[0])
 }
