@@ -37,13 +37,17 @@ type Limit struct {
 	TotalVolume float64
 }
 
+type Limitd []*Limit
+
+type ByBestAsk struct{ Limit }
+
+func (a ByBestAsk) Len() int { return len(a.limit) }
 func NewLimit(price float64) *Limit {
 	return &Limit{
 		Price:  price,
 		Orders: []*Order{},
 	}
 }
-
 
 //func (l *Limit) String() string{
 //	return fmt.Sprintf("[price: %.2f| volume: %.2f]",l.Price,l.TotalVolume)
@@ -115,5 +119,5 @@ func (ob *Orderbook) add(price float64, o *Order) {
 			ob.AskLimits[price] = limit
 		}
 	}
-	
+
 }
