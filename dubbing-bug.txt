@@ -1,0 +1,6 @@
+run command: go build -o bin/exchange
+./bin/exchange
+error: 2024/07/03 16:00:16 Post "http://localhost:8545": dial tcp 127.0.0.1:8545: connect: connection refused
+       make: *** [Makefile:7: run] Error 1
+
+Command: export ETH_NODE_URL=http://localhost:8545
